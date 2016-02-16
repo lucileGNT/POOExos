@@ -1,5 +1,7 @@
 <?php
 
+namespace MonApp\Interfaces;
+
 interface MoyensDeTransports{
 
 	public function avancer();

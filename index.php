@@ -8,6 +8,7 @@ use MonApp\Classes\VehiculeManager;
 use MonApp\Classes\Voiture;
 use MonApp\Classes\Camion;
 use MonApp\Classes\Moto;
+use MonApp\Interfaces\MoyensDeTransport;
 use MonApp\Tools\Autoloader;
 
 
@@ -89,13 +90,25 @@ try{
 }catch(Exception $e){
 	echo $e->getMessage();
 }
-/*
-$classeVehicule = new \ReflectionClass('Vehicule');
+
+echo "<div><strong>Test Reflexivité</strong></div>";
+
+$classeVehicule = new \ReflectionClass('MonApp\Classes\Vehicule');
+
+
+echo "<div>-->Est-ce que Vehicule implémente MoyensDeTransport ? </div>";
+//echo $classeVehicule->implementsInterface('MonApp\Interfaces\MoyensDeTransport');
+echo "<div>-->Récupération de tous les attributs statiques de Véhicule</div>";
+echo "<div>-->Sommes nous dans le namespace MonApp\Classes\Vehicule ?</div>";
+echo "<div>-->Est-ce que l'attribut vitesse est publique ?</div>";
+echo "<div>-->Est-ce que la méthode accélérer est un constructeur ?</div>";
 
 var_dump($classeVehicule->getProperties());
 
+
+echo "<div><strong>Test Traits</strong></div>";
 $vehicule->hello();
 $camion->hello();
 
 $moto= new Moto();
-$moto->hello();*/
+$moto->hello();
