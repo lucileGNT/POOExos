@@ -10,4 +10,12 @@ class Camion extends Vehicule{
 		$this->nbRoues = 8;
 	}
 
+
+	public function accelerer(){
+		if ($this->vitesse < self::VITESSE_MAX){
+			$this->vitesse++;
+		}
+
+	}
+
 }

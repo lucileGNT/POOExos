@@ -5,7 +5,9 @@ use \Classes\Camion;
 use \Classes\MonTrait;*/
 use MonApp\Classes\Vehicule;
 use MonApp\Classes\VehiculeManager;
+use MonApp\Classes\Voiture;
 use MonApp\Classes\Camion;
+use MonApp\Classes\Moto;
 use MonApp\Tools\Autoloader;
 
 
@@ -23,8 +25,9 @@ Autoloader::register();
 $db = new \PDO('mysql:host=localhost;dbname=ecvdigital', 'root', '');
 
 
-$vehicule = new Vehicule();
+$vehicule = new Voiture();
 $camion = new Camion();
+$moto = new Moto();
 $vehiculeManager = new VehiculeManager($db);
 
 //Test méthode magique;
@@ -65,7 +68,27 @@ echo $camion->getNbRoues();
 
 $vehicule->freiner();
 
+echo "<div><strong>Test Héritage</strong></div>";
 
+$vehicule->setVitesse(130);
+$camion->setVitesse(130);
+$moto->setVitesse(130);
+
+$vehicule->accelerer();
+$camion->accelerer();
+$moto->accelerer();
+
+echo "<div>-->Vitesse de la voiture : ".$vehicule->getVitesse()."</div>";
+echo "<div>-->Vitesse de la voiture : ".$camion->getVitesse()."</div>";
+echo "<div>-->Vitesse de la voiture : ".$moto->getVitesse()."</div>";
+
+echo "<div><strong>Test Exceptions</strong></div>";
+
+try{
+	$vehicule->setVitesse(-10);
+}catch(Exception $e){
+	echo $e->getMessage();
+}
 /*
 $classeVehicule = new \ReflectionClass('Vehicule');
 

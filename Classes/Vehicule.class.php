@@ -2,7 +2,7 @@
 
 namespace MonApp\Classes;
 
-class Vehicule{
+abstract class Vehicule{
 
 	use MonTrait;
 
@@ -74,6 +74,9 @@ class Vehicule{
 	}
 	
 	public function setVitesse($v){
+		if ($v < 0){
+			throw new InvalidSpeedException('La vitesse ne peut pas être négative !');
+		}
 		return $this->vitesse = $v;
 	}
 
@@ -82,9 +85,7 @@ class Vehicule{
 	}
 
 
-	public function accelerer(){
-		$this->vitesse++;
-	}
+	public abstract function accelerer();
 	
 	public function freiner(){
 		$this->vitesse--;
