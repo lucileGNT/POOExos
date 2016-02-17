@@ -2,7 +2,7 @@
 
 namespace MonApp\Classes;
 
-abstract class Vehicule{
+abstract class Vehicule implements \MonApp\Interfaces\MoyensDeTransport{
 
 	use MonTrait;
 

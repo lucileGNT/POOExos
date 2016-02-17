@@ -95,15 +95,18 @@ echo "<div><strong>Test Reflexivité</strong></div>";
 
 $classeVehicule = new \ReflectionClass('MonApp\Classes\Vehicule');
 
-
 echo "<div>-->Est-ce que Vehicule implémente MoyensDeTransport ? </div>";
-//echo $classeVehicule->implementsInterface('MonApp\Interfaces\MoyensDeTransport');
+echo $classeVehicule->implementsInterface('MonApp\Interfaces\MoyensDeTransport') ? 'oui' : 'non';
 echo "<div>-->Récupération de tous les attributs statiques de Véhicule</div>";
+var_dump($classeVehicule->getStaticProperties());
 echo "<div>-->Sommes nous dans le namespace MonApp\Classes\Vehicule ?</div>";
+echo $classeVehicule->getNamespaceName(); 
 echo "<div>-->Est-ce que l'attribut vitesse est publique ?</div>";
+$propertyVitesseVehicule = new \ReflectionProperty('MonApp\Classes\Vehicule','vitesse');
+echo $propertyVitesseVehicule->isPublic() ? 'oui' : 'non';
 echo "<div>-->Est-ce que la méthode accélérer est un constructeur ?</div>";
-
-var_dump($classeVehicule->getProperties());
+$methodAccelererVehicule = new \ReflectionMethod('MonApp\Classes\Vehicule','accelerer');
+echo $methodAccelererVehicule->isConstructor() ? 'oui' : 'non';
 
 
 echo "<div><strong>Test Traits</strong></div>";

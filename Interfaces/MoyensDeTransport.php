@@ -2,11 +2,10 @@
 
 namespace MonApp\Interfaces;
 
-interface MoyensDeTransports{
+interface MoyensDeTransport{
 
-	public function avancer();
+	public function accelerer();
 
 	public function freiner();
 
-	public function nbRoues();
 }
