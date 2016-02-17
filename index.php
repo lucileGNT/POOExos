@@ -9,25 +9,30 @@ use POOExos\Interfaces\MoyensDeTransport;
 use POOExos\Tools\Autoloader;
 
 
-//Chargement des classes
-require 'Tools/Autoloader.class.php'; 
-Autoloader::register();
-
+//Fichier de config
 require 'config/config.php';
 
+//Chargement des classes
+require DIR_PATH.'Tools/Autoloader.class.php'; 
+Autoloader::register();
+
+//HTML
 include(DIR_PATH.'html/header.html');
 
 //Connexion à la BDD
 $db = new \PDO('mysql:host=localhost;dbname=ecvdigital', 'root', '');
 
 
+// Création des objets
 $vehicule = new Voiture();
 $camion = new Camion();
 $moto = new Moto();
 $vehiculeManager = new VehiculeManager($db);
 
+echo "<h1>Exercices POO</h1>";
+
 //Test méthode magique;
-echo "<h3>Test méthode magique</h3>";
+echo "<h3>Test Méthode Magique</h3>";
 $vehicule->couleur = 'noir';
 
 
@@ -59,11 +64,11 @@ $vehiculeManager->update($vehiculeAModifier);
 echo "<div>-->Supression</div>";
 $vehiculeManager->delete($vehicule);
 
-//$camion->setNbRoues(8);
 echo $camion->getNbRoues();
 
 $vehicule->freiner();
 
+//Test héritage
 echo "<h3>Test Héritage</h3>";
 
 $vehicule->setVitesse(130);
@@ -86,6 +91,7 @@ try{
 	echo $e->getMessage();
 }
 
+//Test Réflexivité
 echo "<h3>Test Reflexivité</h3>";
 
 $classeVehicule = new \ReflectionClass('POOExos\Classes\Vehicule');
@@ -103,7 +109,7 @@ echo "<div>-->Est-ce que la méthode accélérer est un constructeur ?</div>";
 $methodAccelererVehicule = new \ReflectionMethod('POOExos\Classes\Vehicule','accelerer');
 echo $methodAccelererVehicule->isConstructor() ? 'oui' : 'non';
 
-
+//Test Traits
 echo "<h3>Test Traits</h3>";
 echo "<div>".$vehicule->hello()."<div>";
 echo "<div>".$camion->hello()."<div>";

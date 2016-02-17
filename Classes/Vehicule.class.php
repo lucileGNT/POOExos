@@ -2,6 +2,12 @@
 
 namespace POOExos\Classes;
 
+/**
+ * Classe définissant un véhicule
+ *
+ * @author Lucile Gentner <lucile.gentner@gmail.com>
+ */
+
 abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 
 	use MonTrait;
@@ -15,6 +21,7 @@ abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 	protected $vitesse;
 	const VITESSE_MAX = 130;
 	
+
 	public function _construct(){
 		$this->marque = 'Peugeot';
 		$this->couleur = 'blanc';
@@ -105,11 +112,13 @@ abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 		foreach ($aDonnees as $sKey => $sValue){
 
 			//toCamelCase
-			$aKey = explode('_', $sKey);
+			/*$aKey = explode('_', $sKey);
 			foreach ($aKey as &$oneKey){
 				$oneKey = ucfirst($oneKey); 
 			}
-			$sKey = implode($aKey);
+			$sKey = implode($aKey);*/
+
+			$sKey = MonTrait::toCamelCase($sKey);
 
 		    $sMethod = 'set'.$sKey;
 		        
