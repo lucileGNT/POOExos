@@ -13,6 +13,10 @@ use POOExos\Tools\Autoloader;
 require 'Tools/Autoloader.class.php'; 
 Autoloader::register();
 
+require 'config/config.php';
+
+include(DIR_PATH.'html/header.html');
+
 //Connexion à la BDD
 $db = new \PDO('mysql:host=localhost;dbname=ecvdigital', 'root', '');
 
@@ -23,12 +27,12 @@ $moto = new Moto();
 $vehiculeManager = new VehiculeManager($db);
 
 //Test méthode magique;
-echo "<div><strong>Test méthode magique</strong></div>";
+echo "<h3>Test méthode magique</h3>";
 $vehicule->couleur = 'noir';
 
 
 //Test VehiculeManager
-echo "<div><strong>Test VehiculeManager</strong></div>";
+echo "<h3>Test VehiculeManager</h3>";
 
 echo "<div>-->Ajout</div>";
 $vehicule->hydrate(array(
@@ -60,7 +64,7 @@ echo $camion->getNbRoues();
 
 $vehicule->freiner();
 
-echo "<div><strong>Test Héritage</strong></div>";
+echo "<h3>Test Héritage</h3>";
 
 $vehicule->setVitesse(130);
 $camion->setVitesse(130);
@@ -74,7 +78,7 @@ echo "<div>-->Vitesse de la voiture : ".$vehicule->getVitesse()."</div>";
 echo "<div>-->Vitesse de la voiture : ".$camion->getVitesse()."</div>";
 echo "<div>-->Vitesse de la voiture : ".$moto->getVitesse()."</div>";
 
-echo "<div><strong>Test Exceptions</strong></div>";
+echo "<h3>Test Exceptions</h3>";
 
 try{
 	$vehicule->setVitesse(-10);
@@ -82,7 +86,7 @@ try{
 	echo $e->getMessage();
 }
 
-echo "<div><strong>Test Reflexivité</strong></div>";
+echo "<h3>Test Reflexivité</h3>";
 
 $classeVehicule = new \ReflectionClass('POOExos\Classes\Vehicule');
 
@@ -100,10 +104,13 @@ $methodAccelererVehicule = new \ReflectionMethod('POOExos\Classes\Vehicule','acc
 echo $methodAccelererVehicule->isConstructor() ? 'oui' : 'non';
 
 
-echo "<div><strong>Test Traits</strong></div>";
+echo "<h3>Test Traits</h3>";
 echo "<div>".$vehicule->hello()."<div>";
 echo "<div>".$camion->hello()."<div>";
 echo "<div>".$moto->hello()."<div>";
 
 echo "<div>".$vehicule->getPrixFormate()."<div>";
 echo "<div>".$moto->getPrixFormate()."<div>";
+
+
+include(DIR_PATH.'/html/footer.html');

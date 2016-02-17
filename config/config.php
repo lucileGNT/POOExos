@@ -1,3 +1,3 @@
 <?php
 
-define('DIR_PATH', 'C:\www\wamp\www\POOExos');
+define('DIR_PATH', 'C:/wamp/www/POOExos/');
