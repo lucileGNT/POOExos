@@ -10,4 +10,8 @@ class Voiture extends Vehicule{
 		$this->vitesse++;
 	}
 
+	public function getPrixFormate(){
+		return $this->formaterPrix($this->prix);
+	}
+
 }

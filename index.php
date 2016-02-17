@@ -110,8 +110,9 @@ echo $methodAccelererVehicule->isConstructor() ? 'oui' : 'non';
 
 
 echo "<div><strong>Test Traits</strong></div>";
-$vehicule->hello();
-$camion->hello();
+echo "<div>".$vehicule->hello()."<div>";
+echo "<div>".$camion->hello()."<div>";
+echo "<div>".$moto->hello()."<div>";
 
-$moto= new Moto();
-$moto->hello();
+echo "<div>".$vehicule->getPrixFormate()."<div>";
+echo "<div>".$moto->getPrixFormate()."<div>";

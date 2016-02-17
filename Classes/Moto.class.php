@@ -10,4 +10,8 @@ class Moto extends Vehicule{
 	public function accelerer(){
 		$this->vitesse = $this->vitesse + 2;
 	}
+
+	public function getPrixFormate(){
+		return $this->formaterPrix($this->prix);
+	}
 }

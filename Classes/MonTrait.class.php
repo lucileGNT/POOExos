@@ -8,4 +8,8 @@ trait MonTrait
   {
     echo 'Hello world !';
   }
+
+  public function formaterPrix($prix){
+  	return number_format($prix,2,',',' ')."€";
+  }
 }
