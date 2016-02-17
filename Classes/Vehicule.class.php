@@ -1,8 +1,8 @@
 <?php
 
-namespace MonApp\Classes;
+namespace POOExos\Classes;
 
-abstract class Vehicule implements \MonApp\Interfaces\MoyensDeTransport{
+abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 
 	use MonTrait;
 

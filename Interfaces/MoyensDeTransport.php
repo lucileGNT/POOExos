@@ -1,6 +1,6 @@
 <?php
 
-namespace MonApp\Interfaces;
+namespace POOExos\Interfaces;
 
 interface MoyensDeTransport{
 

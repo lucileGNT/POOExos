@@ -1,6 +1,6 @@
 <?php
 
-namespace MonApp\Classes;
+namespace POOExos\Classes;
 
 trait MonTrait
 {

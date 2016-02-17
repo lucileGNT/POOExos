@@ -1,22 +1,13 @@
 <?php
 
-/*use \Classes\Vehicule;
-use \Classes\Camion;
-use \Classes\MonTrait;*/
-use MonApp\Classes\Vehicule;
-use MonApp\Classes\VehiculeManager;
-use MonApp\Classes\Voiture;
-use MonApp\Classes\Camion;
-use MonApp\Classes\Moto;
-use MonApp\Interfaces\MoyensDeTransport;
-use MonApp\Tools\Autoloader;
+use POOExos\Classes\Vehicule;
+use POOExos\Classes\VehiculeManager;
+use POOExos\Classes\Voiture;
+use POOExos\Classes\Camion;
+use POOExos\Classes\Moto;
+use POOExos\Interfaces\MoyensDeTransport;
+use POOExos\Tools\Autoloader;
 
-
-
-
-/*require "Classes/MonTrait.class.php";
-require "Classes/Vehicule.class.php";
-require "Classes/Camion.class.php";*/
 
 //Chargement des classes
 require 'Tools/Autoloader.class.php'; 
@@ -93,19 +84,19 @@ try{
 
 echo "<div><strong>Test Reflexivité</strong></div>";
 
-$classeVehicule = new \ReflectionClass('MonApp\Classes\Vehicule');
+$classeVehicule = new \ReflectionClass('POOExos\Classes\Vehicule');
 
 echo "<div>-->Est-ce que Vehicule implémente MoyensDeTransport ? </div>";
-echo $classeVehicule->implementsInterface('MonApp\Interfaces\MoyensDeTransport') ? 'oui' : 'non';
+echo $classeVehicule->implementsInterface('POOExos\Interfaces\MoyensDeTransport') ? 'oui' : 'non';
 echo "<div>-->Récupération de tous les attributs statiques de Véhicule</div>";
 var_dump($classeVehicule->getStaticProperties());
-echo "<div>-->Sommes nous dans le namespace MonApp\Classes\Vehicule ?</div>";
+echo "<div>-->Sommes nous dans le namespace POOExos\Classes\Vehicule ?</div>";
 echo $classeVehicule->getNamespaceName(); 
 echo "<div>-->Est-ce que l'attribut vitesse est publique ?</div>";
-$propertyVitesseVehicule = new \ReflectionProperty('MonApp\Classes\Vehicule','vitesse');
+$propertyVitesseVehicule = new \ReflectionProperty('POOExos\Classes\Vehicule','vitesse');
 echo $propertyVitesseVehicule->isPublic() ? 'oui' : 'non';
 echo "<div>-->Est-ce que la méthode accélérer est un constructeur ?</div>";
-$methodAccelererVehicule = new \ReflectionMethod('MonApp\Classes\Vehicule','accelerer');
+$methodAccelererVehicule = new \ReflectionMethod('POOExos\Classes\Vehicule','accelerer');
 echo $methodAccelererVehicule->isConstructor() ? 'oui' : 'non';
 
 

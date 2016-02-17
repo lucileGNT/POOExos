@@ -1,6 +1,6 @@
 <?php
 
-namespace MonApp\Tools;
+namespace POOExos\Tools;
 
 /**
  * Class Autoloader
