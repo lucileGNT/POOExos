@@ -13,7 +13,7 @@ class Moto extends Vehicule{
 	use MonTrait;
 
 	/**
-	 * Constructeur de la classe
+	 * Augmente la vitesse de la moto
 	 *
 	 * @return Moto object
 	 */

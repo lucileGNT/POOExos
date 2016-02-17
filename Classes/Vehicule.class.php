@@ -111,12 +111,6 @@ abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 	public function hydrate($aDonnees){
 		foreach ($aDonnees as $sKey => $sValue){
 
-			//toCamelCase
-			/*$aKey = explode('_', $sKey);
-			foreach ($aKey as &$oneKey){
-				$oneKey = ucfirst($oneKey); 
-			}
-			$sKey = implode($aKey);*/
 
 			$sKey = MonTrait::toCamelCase($sKey);
 
