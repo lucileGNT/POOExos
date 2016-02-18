@@ -24,6 +24,7 @@ try {
         die;
     }
     
+    $dataInsertionQuery='';
     $dataInsertionQuery=file_get_contents ("datatest.sql");
 
     $stmt = $dbh->prepare($dataInsertionQuery);

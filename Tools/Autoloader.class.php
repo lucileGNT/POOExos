@@ -2,6 +2,7 @@
 
 namespace POOExos\Tools;
 
+
 /**
  * Class Autoloader
  */
@@ -20,9 +21,9 @@ class Autoloader{
      */
     static function autoload($class){
         if (strpos($class, 'Classes') != false){
-            require  '../'.$class .'.class.php';
+            require  DIR_WWW.$class .'.class.php';
         }else{
-            require  '../'.$class .'.php';
+            require  DIR_WWW.$class .'.php';
         }
     }
 

@@ -20,27 +20,27 @@ Autoloader::register();
 include(DIR_PATH.'html/header.html');
 
 //Connexion à la BDD
-$db = new \PDO('mysql:host=localhost;dbname=ecvdigital', 'root', '');
+$db = new \PDO('mysql:host='.SERVER_NAME.';dbname='.DB_NAME, DB_USR, DB_PWD);
 
 
 // Création des objets
-$vehicule = new Voiture();
+$voiture = new Voiture();
 $camion = new Camion();
 $moto = new Moto();
-$vehiculeManager = new VehiculeManager($db);
+$voitureManager = new VehiculeManager($db);
 
 echo "<h1>Exercices POO</h1>";
 
 //Test méthode magique;
 echo "<h3>Test Méthode Magique</h3>";
-$vehicule->couleur = 'noir';
+$voiture->couleur = 'noir';
 
 
 //Test VehiculeManager
 echo "<h3>Test VehiculeManager</h3>";
 
 echo "<div>-->Ajout</div>";
-$vehicule->hydrate(array(
+$voiture->hydrate(array(
 		'marque' => 'Opel',
 		'modele' => 'Corsa',
 		'couleur' => 'bleue',
@@ -50,43 +50,51 @@ $vehicule->hydrate(array(
 		)
 	);
 
-$id = $vehiculeManager->add($vehicule);
-$vehicule->setId($id);
+$id = $voitureManager->add($voiture);
+$voiture->setId($id);
+echo "<div>ID = ".$id."</div>";
+var_dump($voiture);
 
 echo "<div>-->Lecture</div>";
-$vehiculeAModifier = $vehiculeManager->get(5);
+$voitureAModifier = $voitureManager->get(1);
+echo "<div>ID = 1</div>";
+var_dump($voitureAModifier);
 
 echo "<div>-->Modification</div>";
-$vehiculeAModifier->accelerer();
+$voitureAModifier->accelerer();
 
-$vehiculeManager->update($vehiculeAModifier);
+$voitureManager->update($voitureAModifier);
+echo "<div>ID = ".$voitureAModifier->getId()."</div>";
+var_dump($voitureAModifier);
 
 echo "<div>-->Supression</div>";
-$vehiculeManager->delete($vehicule);
+$voitureManager->delete($voiture);
+echo "<div>ID = ".$voiture->getId()."</div>";
 
-echo $camion->getNbRoues();
 
-$vehicule->freiner();
+$voiture->freiner();
 
 //Test héritage
 echo "<h3>Test Héritage</h3>";
 
-$vehicule->setVitesse(130);
+
+echo "<div>Nombre de roues du camion".$camion->getNbRoues()."</div>";
+
+$voiture->setVitesse(130);
 $camion->setVitesse(130);
 $moto->setVitesse(130);
 
-$vehicule->accelerer();
+$voiture->accelerer();
 $camion->accelerer();
 $moto->accelerer();
 
-echo "<div>-->Vitesse de la voiture : ".$vehicule->getVitesse()."</div>";
-echo "<div>-->Vitesse de la voiture : ".$camion->getVitesse()."</div>";
-echo "<div>-->Vitesse de la voiture : ".$moto->getVitesse()."</div>";
+echo "<div>-->Vitesse de la voiture : ".$voiture->getVitesse()."</div>";
+echo "<div>-->Vitesse du camion : ".$camion->getVitesse()."</div>";
+echo "<div>-->Vitesse de la moto : ".$moto->getVitesse()."</div>";
 
 echo "<h3>Test Exceptions</h3>";
-
 try{
-	$vehicule->setVitesse(-10);
+	$voiture->setVitesse(-10);
 }catch(Exception $e){
 	echo $e->getMessage();
 }
@@ -111,11 +119,11 @@ echo $methodAccelererVehicule->isConstructor() ? 'oui' : 'non';
 
 //Test Traits
 echo "<h3>Test Traits</h3>";
-echo "<div>".$vehicule->hello()."<div>";
+echo "<div>".$voiture->hello()."<div>";
 echo "<div>".$camion->hello()."<div>";
 echo "<div>".$moto->hello()."<div>";
 
-echo "<div>".$vehicule->getPrixFormate()."<div>";
+echo "<div>".$voiture->getPrixFormate()."<div>";
 echo "<div>".$moto->getPrixFormate()."<div>";
 
 

@@ -55,7 +55,9 @@ class VehiculeManager
     $q = $this->_db->query('SELECT id, marque, modele, couleur, nb_roues, prix, vitesse FROM vehicule WHERE id = '.$id);
     $donnees = $q->fetch(\PDO::FETCH_ASSOC);
     $vehicule =  new Camion();
-    $vehicule->hydrate($donnees);
+    if (!empty($donnees)){
+      $vehicule->hydrate($donnees);
+    }
 
     return $vehicule;
 

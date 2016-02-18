@@ -2,7 +2,9 @@
 
 //Chemin du projet
 
-define('DIR_PATH', 'C:/wamp/www/POOExos/');
+define('DIR_WWW', 'C:/wamp/www/');
+define('DIR_PATH', DIR_WWW.'POOExos/');
+
 
 //Base de données
 define('SERVER_NAME', 'localhost');

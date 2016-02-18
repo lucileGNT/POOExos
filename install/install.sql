@@ -1,1 +1,0 @@
-INSERT INTO `ecvdigital`.`vehicule` (`id`, `marque`, `modele`, `couleur`, `nb_roues`, `prix`, `vitesse`) VALUES (NULL, 'Citroen', 'C1', 'Noir', '4', '10000', '20'), (NULL, 'Peugeot', '208', 'blanc', '4', '15000', '50');
