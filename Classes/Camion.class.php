@@ -10,7 +10,7 @@ namespace POOExos\Classes;
 
 class Camion extends Vehicule{
 
-	use MonTrait;
+	use FonctionsUtiles;
 
 	/**
 	 * Constructeur de la classe

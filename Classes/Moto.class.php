@@ -10,7 +10,7 @@ namespace POOExos\Classes;
 
 class Moto extends Vehicule{
 	
-	use MonTrait;
+	use FonctionsUtiles;
 
 	/**
 	 * Augmente la vitesse de la moto

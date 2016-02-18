@@ -10,7 +10,7 @@ namespace POOExos\Classes;
 
 abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 
-	use MonTrait;
+	use FonctionsUtiles;
 
 	protected $id;
 	protected $marque;
@@ -143,7 +143,7 @@ abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 	public function hydrate($aDonnees){
 		foreach ($aDonnees as $sKey => $sValue){
 
-			$sKey = MonTrait::toCamelCase($sKey);
+			$sKey = FonctionsUtiles::toCamelCase($sKey);
 
 		    $sMethod = 'set'.$sKey;
 		        

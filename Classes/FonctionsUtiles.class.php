@@ -8,7 +8,7 @@ namespace POOExos\Classes;
  * @author Lucile Gentner <lucile.gentner@gmail.com>
  */
 
-trait MonTrait
+trait FonctionsUtiles
 {
 
 /**
