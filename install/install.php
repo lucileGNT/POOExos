@@ -1,5 +1,6 @@
 <?php
 
+namespace POOExos\install;
 /*
  * Installe la base
  */
@@ -11,7 +12,7 @@ include(DIR_PATH.'html/header.html');
 echo "<h1>Installation</h1>";
 
 try {
-    $dbh = new PDO('mysql:host='.SERVER_NAME.';dbname='.DB_NAME, DB_USR, DB_PWD);
+    $dbh = new \PDO('mysql:host='.SERVER_NAME.';dbname='.DB_NAME, DB_USR, DB_PWD);
 
     //Installe la  base
 

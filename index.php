@@ -8,7 +8,6 @@ use POOExos\Classes\Moto;
 use POOExos\Interfaces\MoyensDeTransport;
 use POOExos\Tools\Autoloader;
 
-
 //Fichier de config
 require 'config/config.php';
 
@@ -94,7 +93,8 @@ echo "<div>-->Vitesse de la moto : ".$moto->getVitesse()."</div>";
 
 echo "<h3>Test Exceptions</h3>";
 try{
-	$voiture->setVitesse(-10);
+	$voiture->setVitesse(0);
+	$voiture->freiner();
 }catch(Exception $e){
 	echo $e->getMessage();
 }

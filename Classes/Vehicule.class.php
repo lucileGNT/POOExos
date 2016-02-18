@@ -84,19 +84,8 @@ abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 		return $this->prix = $v;
 	}
 	
-	/**
-	 * Modifie la vitesse du Vehicule
-	 *
-	 * @param float $vitesse la valeur souhaitée pour la vitesse
- 	 * 
-	 * @throws InvalidSpeedException
-	 *
-	 * @return array la nouvelle vitesse
-	 */
+
 	public function setVitesse($v){
-		if ($v < 0){
-			throw new InvalidSpeedException('La vitesse ne peut pas être négative !');
-		}
 		return $this->vitesse = $v;
 	}
 
@@ -111,8 +100,19 @@ abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 	 * @return void
 	 */	
 	public abstract function accelerer();
-	
+
+
+	/**
+	 * Réduit la vitesse du Vehicule
+ 	 * 
+	 * @throws InvalidSpeedException
+	 *
+	 * @return void
+	 */
 	public function freiner(){
+		if ($this->vitesse <= 0){
+			throw new InvalidSpeedException('La vitesse ne peut pas être négative !');
+		}
 		$this->vitesse--;
 	}
 
