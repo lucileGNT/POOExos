@@ -5,6 +5,8 @@ namespace POOExos\Tools;
 
 /**
  * Class Autoloader
+ *
+ * @author Lucile Gentner <lucile.gentner@gmail.com>
  */
 class Autoloader{
 

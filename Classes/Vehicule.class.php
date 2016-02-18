@@ -21,7 +21,11 @@ abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 	protected $vitesse;
 	const VITESSE_MAX = 130;
 	
-
+	/**
+	 * Constructeur de la classe
+	 *
+	 * @return Vehicule object
+	 */
 	public function _construct(){
 		$this->marque = 'Peugeot';
 		$this->couleur = 'blanc';
@@ -80,6 +84,15 @@ abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 		return $this->prix = $v;
 	}
 	
+	/**
+	 * Modifie la vitesse du Vehicule
+	 *
+	 * @param float $vitesse la valeur souhaitée pour la vitesse
+ 	 * 
+	 * @throws InvalidSpeedException
+	 *
+	 * @return array la nouvelle vitesse
+	 */
 	public function setVitesse($v){
 		if ($v < 0){
 			throw new InvalidSpeedException('La vitesse ne peut pas être négative !');
@@ -92,6 +105,11 @@ abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 	}
 
 
+	/**
+	 * Accélère la vitesse du véhicule
+	 *
+	 * @return void
+	 */	
 	public abstract function accelerer();
 	
 	public function freiner(){
@@ -102,15 +120,28 @@ abstract class Vehicule implements \POOExos\Interfaces\MoyensDeTransport{
 		echo 'Impossible d\'assigner à l\'attribut '.$nom.' la valeur '.$valeur;
 	}
 	
-	/*Convertit la vitesse en mph*/
+	/**
+	 * Convertit la vitesse en mph
+	 *
+	 * @param float $vitesse la vitesse à convertir
+	 *
+	 * @return float la vitesse convertie
+	 */
 	public static function getVitesseMph($vitesse){
 		//1 mph = 1.609344 km/h
 		return $vitesse / 1.609344;
 	}
+
+	/**
+	 * Hydrate un objet Vehicule
+	 *
+	 * @param $aDonnees les données à assigner à l'objet
+	 *
+	 * @return Vehicule object l'objet hydraté
+	 */
 	
 	public function hydrate($aDonnees){
 		foreach ($aDonnees as $sKey => $sValue){
-
 
 			$sKey = MonTrait::toCamelCase($sKey);
 
