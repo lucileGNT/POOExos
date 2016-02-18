@@ -13,13 +13,13 @@ namespace POOExos\Interfaces;
 interface MoyensDeTransport{
 
 	/**
-	 * Accélère la vitesse du myen de transport
+	 * Accélère la vitesse du moyen de transport
 	 *
 	 */
 	public function accelerer();
 
 	/**
-	 * Réduit la vitesse du myen de transport
+	 * Réduit la vitesse du moyen de transport
 	 *
 	 */
 	public function freiner();

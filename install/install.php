@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Install the database
+ * Installe la base
  */
 require_once '../config/config.php';
 
@@ -12,6 +12,8 @@ echo "<h1>Installation</h1>";
 
 try {
     $dbh = new PDO('mysql:host='.SERVER_NAME.';dbname='.DB_NAME, DB_USR, DB_PWD);
+
+    //Installe la  base
 
     $dbCreationQuery='';
     $dbCreationQuery=file_get_contents ("ecvdigital.sql");
@@ -24,6 +26,8 @@ try {
         die;
     }
     
+
+    //Insère des données de test
     $dataInsertionQuery='';
     $dataInsertionQuery=file_get_contents ("datatest.sql");
 
@@ -42,6 +46,6 @@ try {
 }
 
 
-
+//HTML
 include(DIR_PATH.'/html/footer.html');
 ?>

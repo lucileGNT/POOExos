@@ -126,5 +126,5 @@ echo "<div>".$moto->hello()."<div>";
 echo "<div>".$voiture->getPrixFormate()."<div>";
 echo "<div>".$moto->getPrixFormate()."<div>";
 
-
+//HTML
 include(DIR_PATH.'/html/footer.html');
